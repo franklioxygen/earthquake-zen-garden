@@ -32,7 +32,7 @@ module.exports={
         /** "port" 
          * port of dev server
         */
-        port: "9500",
+        port: "3000",
         /** "static" 
          * This property tells Webpack what static file it should serve
         */
@@ -69,10 +69,27 @@ module.exports={
          */
         rules: [
             {
+                test: /\.s[ac]ss$/i,
+                use: [
+                  // Creates `style` nodes from JS strings
+                  "style-loader",
+                  // Translates CSS into CommonJS
+                  "css-loader",
+                  // Compiles Sass to CSS
+                  "sass-loader",
+                ],
+            },
+            {
                 test: /\.(js|jsx)$/,    //kind of file extension this rule should look for and apply in test
                 exclude: /node_modules/, //folder to be excluded
                 use:  'babel-loader' //loader which we are going to use
-            }
+            },
+            {
+                test: /\.(jpg|png)$/,
+                use: {
+                  loader: 'url-loader',
+                },
+            },
         ]
     }
 }
