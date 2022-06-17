@@ -27,17 +27,17 @@ class Home extends React.Component {
     }
   }
 
-formatDate = (timestamp) => {
-    let date =  new Date(timestamp);
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    minutes = minutes.toString().padStart(2, '0');
-    let strTime = hours + ':' + minutes + ' ' + ampm;
-    return `${date.toString().substring(4,15)}, ${strTime}`;
-}
+  formatDate = (timestamp) => {
+      let date =  new Date(timestamp);
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      minutes = minutes.toString().padStart(2, '0');
+      let strTime = hours + ':' + minutes + ' ' + ampm;
+      return `${date.toString().substring(4,15)}, ${strTime}`;
+  }
 
   render() {
     return (
